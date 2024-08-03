@@ -1,4 +1,4 @@
-name: fm
+name: flow
 channels:
 - conda-forge
 - nvidia

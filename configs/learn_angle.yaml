@@ -66,19 +66,9 @@ dataset:
     dataset_dir: /datapool/data2/home/jiahan/ResProj/PepDiff/frame-flow/Data/Fixed Data
     name: pep_pocket_train
     reset: False
-    # split: train
-    # transform:
-    # - type: mask_single_cdr
-    # - type: merge_chains
-    # - type: patch_around_anchor
   val:
     type: peprec
     structure_dir: /datapool/data2/home/jiahan/Data/PepMerge_new/
     dataset_dir: /datapool/data2/home/jiahan/ResProj/PepDiff/frame-flow/Data/Fixed Data
     name: pep_pocket_test
     reset: False
-    # split: val
-    # transform:
-    # - type: mask_single_cdr
-    # - type: merge_chains
-    # - type: patch_around_anchor

@@ -10,9 +10,9 @@ from tqdm import tqdm
 
 from joblib import delayed, Parallel
 
-input_dir="/datapool/data2/home/jiahan/ResProj/PepDiff/frame-flow/Data/Baselines_new/Tests"
+input_dir="./Baselines_new/Tests"
 # output_dir="/datapool/data2/home/jiahan/Res Proj/PepDiff/frame-flow/Data/RF_samples"
-output_dir="/datapool/data2/home/jiahan/ResProj/PepDiff/frame-flow/Data/Baselines_new/Fixbb"
+output_dir="./Data/Baselines_new/Fixbb"
 
 RUNNER = "/datapool/data2/home/jiahan/Tool/esm/examples/inverse_folding/sample_sequences.py"
 

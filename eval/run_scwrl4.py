@@ -9,8 +9,8 @@ from tqdm import tqdm
 
 from joblib import delayed, Parallel
 
-input_dir="/datapool/data2/home/jiahan/ResProj/PepDiff/frame-flow/Data/Baselines_new/Tests"
-output_dir="/datapool/data2/home/jiahan/ResProj/PepDiff/frame-flow/Data/Baselines_new/Pack"
+input_dir="./Data/Baselines_new/Tests"
+output_dir="./Data/Baselines_new/Pack"
 
 RUNNER = "/datapool/data2/home/jiahan/Tool/bin/Scwrl4"
 

@@ -17,8 +17,8 @@ import pickle
 from joblib import delayed, Parallel
 from utils import *
 
-input_dir="/datapool/data2/home/jiahan/ResProj/PepDiff/frame-flow/Data/Baselines_new/Tests"
-output_dir="/datapool/data2/home/jiahan/ResProj/PepDiff/frame-flow/Data/Baselines_new/Pack"
+input_dir=".Tests"
+output_dir="./Pack"
 
 def get_chain_dic(input_pdb):
     parser = PDBParser()

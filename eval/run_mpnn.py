@@ -14,8 +14,6 @@ from joblib import delayed, Parallel
 from Bio.PDB import PDBParser, PDBIO, Select
 
 
-# output_dir="/datapool/data2/home/jiahan/ResProj/PepDiff/frame-flow/Data/Baselines_new/Fixbb"
-
 HELPERS = "/datapool/data2/home/jiahan/Tool/ProteinMPNN/helper_scripts"
 RUNNER = "/datapool/data2/home/jiahan/Tool/ProteinMPNN/protein_mpnn_run.py"
 
@@ -26,8 +24,8 @@ def get_chain_nums(pdb_path,chain_id):
     return residue_nums
 
 def process_mpnn_bb(name='1aze_B',chains_to_design="A",num_samples=1):
-    input_dir = '/datapool/data2/home/jiahan/ResProj/PepDiff/frame-flow/Data/Models_new/Codesign/bb/pdbs'
-    output_dir = '/datapool/data2/home/jiahan/ResProj/PepDiff/frame-flow/Data/Models_new/Codesign/bb/seqs'
+    input_dir = './Data/Models_new/Codesign/bb/pdbs'
+    output_dir = './Data/Models_new/Codesign/bb/seqs'
     if not os.path.exists(os.path.join(output_dir,name)):
         os.makedirs(os.path.join(output_dir,name))
     dirname = os.path.join(output_dir,name)
@@ -74,8 +72,8 @@ def process_mpnn_bb(name='1aze_B',chains_to_design="A",num_samples=1):
     ])
 
 def process_one_item_mpnn(name='1a1m_C',chains_to_design="A",num_samples=1):
-    input_dir="/datapool/data2/home/jiahan/ResProj/PepDiff/frame-flow/Data/Baselines_new/Tests"
-    output_dir="/datapool/data2/home/jiahan/ResProj/PepDiff/frame-flow/Data/Baselines_new/Codesign"
+    input_dir="./Data/Baselines_new/Tests"
+    output_dir="./Data/Baselines_new/Codesign"
     if not os.path.exists(os.path.join(output_dir,name,'mpnns')):
         os.makedirs(os.path.join(output_dir,name,'mpnns'))
     # if not os.path.exists(os.path.join(output_dir,name,'pocket_merge_renum.pdb')):
@@ -93,7 +91,7 @@ def process_one_item_mpnn(name='1a1m_C',chains_to_design="A",num_samples=1):
     # print("parsing chains")
     subprocess.run([
         "python", os.path.join(HELPERS,"parse_multiple_chains.py"),
-        "--input_path", os.path.join('/datapool/data2/home/jiahan/ResProj/PepDiff/frame-flow/Data/Baselines_new/Codesign',name,'rfs'),#os.path.join('/datapool/data2/home/jiahan/ResProj/PepDiff/frame-flow/Data/Baselines/Fixbb/',name),
+        "--input_path", os.path.join('./Data/Baselines_new/Codesign',name,'rfs'),#os.path.join('/datapool/data2/home/jiahan/ResProj/PepDiff/frame-flow/Data/Baselines/Fixbb/',name),
         "--output_path", path_for_parsed_chains,
     ])
     subprocess.run([

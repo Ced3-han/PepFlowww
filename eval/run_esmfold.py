@@ -17,17 +17,15 @@ from geometry import *
 # 忽略PDBConstructionWarning
 warnings.filterwarnings('ignore', category=BiopythonWarning)
 
-input_dir="/datapool/data2/home/jiahan/ResProj/PepDiff/frame-flow/Data/Baselines_new/Tests"
-# output_dir="/datapool/data2/home/jiahan/Res Proj/PepDiff/frame-flow/Data/RF_samples"
+input_dir="./Data/Baselines_new/Tests"
 output_dir="/datapool/data2/home/jiahan/ResProj/PepDiff/frame-flow/Data/Baselines_new/Codesign"
 
 model = esm.pretrained.esmfold_v1()
 model = model.eval().to('cuda:2')
 
 def process_rf(name='1aze_B'):
-    input_dir="/datapool/data2/home/jiahan/ResProj/PepDiff/frame-flow/Data/Baselines_new/Tests"
-    # output_dir="/datapool/data2/home/jiahan/Res Proj/PepDiff/frame-flow/Data/RF_samples"
-    output_dir="/datapool/data2/home/jiahan/ResProj/PepDiff/frame-flow/Data/Baselines_new/Codesign"
+    input_dir=".Data/Baselines_new/Tests"
+    output_dir=".Data/Baselines_new/Codesign"
     struct_dir = os.path.join(output_dir,name,'rfs_refold')
     seq_dir = os.path.join(output_dir,name,'mpnns','seqs')
     os.makedirs(struct_dir,exist_ok=True)
@@ -45,9 +43,8 @@ def process_rf(name='1aze_B'):
             f.write(output)
 
 def process_pg(name='1aze_B',chain_id='A'):
-    input_dir="/datapool/data2/home/jiahan/ResProj/PepDiff/frame-flow/Data/Baselines_new/Tests"
-    # output_dir="/datapool/data2/home/jiahan/Res Proj/PepDiff/frame-flow/Data/RF_samples"
-    output_dir="/datapool/data2/home/jiahan/ResProj/PepDiff/frame-flow/Data/Baselines_new/Codesign"
+    input_dir=".Data/Baselines_new/Tests"
+    output_dir=".Data/Baselines_new/Codesign"
     struct_dir = os.path.join(output_dir,name,'pgs_refold')
     seq_dir = os.path.join(output_dir,name,'pgs')
     os.makedirs(struct_dir,exist_ok=True)

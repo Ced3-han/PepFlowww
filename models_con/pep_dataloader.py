@@ -61,11 +61,6 @@ def preprocess_structure(task):
         data = {}
         data['id'] = task['id']
         data['generate_mask'] = torch.cat([torch.zeros_like(rec['aa']), torch.ones_like(pep['aa'])], dim=0).bool()
-        # # 9400+ datapoints
-        # if data['id'] in bind_dic:
-        #     data['score'] = bind_dic[data['id']]
-        # else:
-        #     raise ValueError(f'no score of {data["id"]}')
         for k in rec.keys():
             if isinstance(rec[k], torch.Tensor):
                 data[k] = torch.cat([rec[k], pep[k]], dim=0)
@@ -93,7 +88,7 @@ class PepDataset(Dataset):
 
     MAP_SIZE = 32*(1024*1024*1024)  # 32GB
 
-    def __init__(self, structure_dir = "/datapool/data2/home/jiahan/Data/PepMerge_new/", dataset_dir = "/datapool/data2/home/jiahan/ResProj/PepDiff/PepFlow/Data/",
+    def __init__(self, structure_dir = "./Data/PepMerge_new/", dataset_dir = "./Data/",
                                             name = 'pep', transform=None, reset=False):
 
         super().__init__()
@@ -204,8 +199,8 @@ class PepDataset(Dataset):
 
 if __name__ == '__main__':
     device = 'cuda:1'
-    config,cfg_name = load_config("/datapool/data2/home/jiahan/ResProj/PepDiff/frame-flow/configs/learn/learn_all.yaml")
-    dataset = PepDataset(structure_dir = "/datapool/data2/home/jiahan/Data/PepMerge_new/", dataset_dir = "/datapool/data2/home/jiahan/ResProj/PepDiff/frame-flow/Data/Fixed Data",
+    config,cfg_name = load_config("./configs/learn/learn_all.yaml")
+    dataset = PepDataset(structure_dir = "./Data/PepMerge_new/", dataset_dir = "/Data/Fixed Data",
                                             name = 'pep_pocket_test', transform=None, reset=True)
     print(len(dataset))
     print(dataset[0])
@@ -215,14 +210,3 @@ if __name__ == '__main__':
     batch = next(iter(dataloader))
     print(batch['torsion_angle'].shape)
     print(batch['torsion_angle_mask'].shape)
-
-    # for i in tqdm(range(len(dataset))):
-    #     try:
-    #         data = dataset[i]
-    #         save_pdb(data,path=f'/datapool/data2/home/jiahan/Res Proj/PepDiff/frame-flow/Data/Raw Data/raw/{data["id"]}.pdb')
-    #     except:
-    #         print(data["id"])
-    #         torch.save(data,os.path.join("/datapool/data2/home/jiahan/Res Proj/PepDiff/frame-flow/misc/rub pdbs",data["id"]+".pt"))
-    # data = torch.load("/datapool/data2/home/jiahan/Res Proj/PepDiff/frame-flow/misc/rub pdbs/1ttw_1_III_B2.pt")
-    # print(data)
-    # save_pdb(data,path=f'/datapool/data2/home/jiahan/Res Proj/PepDiff/frame-flow/misc/rub pdbs/1ttw_1_III_B2.pdb')

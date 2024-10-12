@@ -124,7 +124,7 @@ class FlowModel(nn.Module):
 
         with torch.no_grad():
             t = torch.rand((num_batch,1), device=batch['aa'].device) 
-            t = t*(1-2 * self._interpolant_cfg.t_normalization_clip) + self._interpolant_cfg.t_normalization_clip # avoid 0
+            t = t*(1-2 * self._interpolant_cfg.min_t) + self._interpolant_cfg.min_t # avoid 0
             if self.sample_structure:
                 # corrupt trans
                 trans_0 = torch.randn((num_batch,num_res,3), device=batch['aa'].device) * self._interpolant_cfg.trans.sigma # scale with sigma?

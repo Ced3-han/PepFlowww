@@ -43,7 +43,7 @@ python setup.py develop
 
 ### Data and Weights Download
 
-We provide data and pretrained model weights.
+We provide data and pretrained model weights, please download from the google drive link: https://drive.google.com/drive/folders/1bHaKDF3uCDPtfsihjZs0zmjwF6UU1uVl?usp=sharing.
 
 + PepMerge_release.zip: 1.2GB
 + PepMerge_lmdb.zip: 180MB
@@ -85,7 +85,6 @@ You can also ```train.py``` on single GPU training and ```train_ddp.py``` for mu
 
 
 Future improvements on peptide generation models may include chemical modifications, non-canonical amino acids, pretraining on larger datasets, language models, better sampling methods, etc. Stay tuned and feel free to contact us for collaboration and discussion!
-
 
 
 ## Reference

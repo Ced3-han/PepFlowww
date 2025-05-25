@@ -43,7 +43,7 @@ python setup.py develop
 
 ### Data and Weights Download
 
-We provide data and pretrained model weights [here](https://drive.google.com/drive/folders/1bHaKDF3uCDPtfsihjZs0zmjwF6UU1uVl?usp=sharing).
+We provide data and pretrained model weights.
 
 + PepMerge_release.zip: 1.2GB
 + PepMerge_lmdb.zip: 180MB
